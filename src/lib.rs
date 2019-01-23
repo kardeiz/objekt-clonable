@@ -20,11 +20,17 @@ pub fn clonable(attrs: TokenStream, item: TokenStream) -> TokenStream {
         parse_quote!(::std::clone::Clone),
     ];
 
-    if let Some(path) = item_trait.supertraits.iter_mut()
-        .filter_map(|x| match x { TypeParamBound::Trait(ref mut y) => Some(y), _ => None })
-        .map(|x| &mut x.path )
-        .find(|x| cloneish_paths.iter().any(|y| &y == x) ) {
-        *path = parse_quote!(_objekt::Clone);     
+    if let Some(path) = item_trait
+        .supertraits
+        .iter_mut()
+        .filter_map(|x| match x {
+            TypeParamBound::Trait(ref mut y) => Some(y),
+            _ => None
+        })
+        .map(|x| &mut x.path)
+        .find(|x| cloneish_paths.iter().any(|y| &y == x))
+    {
+        *path = parse_quote!(_objekt::Clone);
     } else {
         panic!("`Clone` must be present in trait supertrait list");
     }
@@ -34,6 +40,6 @@ pub fn clonable(attrs: TokenStream, item: TokenStream) -> TokenStream {
         use _objekt::{clone_trait_object, __internal_clone_trait_object};
         #item_trait
         clone_trait_object!(#item_trait_ident);
-    }).into()
-
+    })
+    .into()
 }

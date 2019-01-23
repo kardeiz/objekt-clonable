@@ -16,7 +16,7 @@ impl MyTrait for String {
 
 #[derive(Clone)]
 struct Container {
-    trait_object: Box<MyTrait>,
+    trait_object: Box<MyTrait>
 }
 
 fn main() {
