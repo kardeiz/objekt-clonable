@@ -1,4 +1,3 @@
-
 use objekt_clonable::*;
 
 #[clonable]

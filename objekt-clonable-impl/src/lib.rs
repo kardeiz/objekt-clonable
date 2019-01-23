@@ -14,7 +14,10 @@ pub fn clonable(_attrs: TokenStream, item: TokenStream) -> TokenStream {
 
     let item_trait_ident = &item_trait.ident;
 
-    let objekt_rename = &Ident::new(&format!("_objekt_{}", item_trait_ident.to_string()), Span::call_site());
+    let objekt_clonable_rename = &Ident::new(
+        &format!("_objekt_clonable_{}", item_trait_ident.to_string()),
+        Span::call_site()
+    );
 
     let cloneish_paths: Vec<Path> = vec![
         parse_quote!(Clone),
@@ -32,16 +35,15 @@ pub fn clonable(_attrs: TokenStream, item: TokenStream) -> TokenStream {
         .map(|x| &mut x.path)
         .find(|x| cloneish_paths.iter().any(|y| &y == x))
     {
-        *path = parse_quote!(#objekt_rename::Clone);
+        *path = parse_quote!(#objekt_clonable_rename::objekt::Clone);
     } else {
         panic!("`Clone` must be present in trait supertrait list");
     }
 
-
-    (quote!{
-        extern crate objekt as #objekt_rename;
+    (quote! {
+        extern crate objekt_clonable as #objekt_clonable_rename;
         #item_trait
-        clone_trait_object!(#item_trait_ident);        
+        #objekt_clonable_rename::objekt::clone_trait_object!(#item_trait_ident);
     })
     .into()
 }
