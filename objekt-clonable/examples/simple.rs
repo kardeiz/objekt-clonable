@@ -1,7 +1,5 @@
-#[macro_use]
-extern crate objekt_clonable;
-#[macro_use]
-extern crate objekt;
+
+use objekt_clonable::*;
 
 #[clonable]
 trait MyTrait: std::clone::Clone {

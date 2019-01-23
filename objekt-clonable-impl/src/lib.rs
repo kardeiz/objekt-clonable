@@ -14,9 +14,7 @@ pub fn clonable(_attrs: TokenStream, item: TokenStream) -> TokenStream {
 
     let item_trait_ident = &item_trait.ident;
 
-    let random = rand::random::<u64>();
-
-    let objekt_rename = &Ident::new(&format!("_objekt_{}", random), Span::call_site());
+    let objekt_rename = &Ident::new(&format!("_objekt_{}", item_trait_ident.to_string()), Span::call_site());
 
     let cloneish_paths: Vec<Path> = vec![
         parse_quote!(Clone),

@@ -1,7 +1,12 @@
 [package]
-name = "objekt-clonable"
-version = "0.1.0"
 authors = ["Jacob Brown <kardeiz@gmail.com>"]
 edition = "2018"
+name = "objekt-clonable"
+version = "0.1.0"
 
 [dependencies]
+objekt = "0.1.1"
+
+[dependencies.objekt-clonable-impl]
+path = "../objekt-clonable-impl"
+version = "0.1.0"
