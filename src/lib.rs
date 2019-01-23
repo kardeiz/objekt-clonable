@@ -3,13 +3,12 @@
 extern crate proc_macro;
 
 use proc_macro::TokenStream;
-use proc_macro2::Span;
 use quote::quote;
 
 use syn::*;
 
 #[proc_macro_attribute]
-pub fn clonable(attrs: TokenStream, item: TokenStream) -> TokenStream {
+pub fn clonable(_attrs: TokenStream, item: TokenStream) -> TokenStream {
     let mut item_trait = parse_macro_input!(item as ItemTrait);
 
     let item_trait_ident = &item_trait.ident;
