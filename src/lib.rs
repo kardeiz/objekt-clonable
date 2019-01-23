@@ -29,14 +29,12 @@ pub fn clonable(_attrs: TokenStream, item: TokenStream) -> TokenStream {
         .map(|x| &mut x.path)
         .find(|x| cloneish_paths.iter().any(|y| &y == x))
     {
-        *path = parse_quote!(_objekt::Clone);
+        *path = parse_quote!(objekt::Clone);
     } else {
         panic!("`Clone` must be present in trait supertrait list");
     }
 
     (quote!{
-        extern crate objekt as _objekt;
-        use _objekt::{clone_trait_object, __internal_clone_trait_object};
         #item_trait
         clone_trait_object!(#item_trait_ident);
     })

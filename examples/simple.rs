@@ -1,11 +1,16 @@
 #[macro_use]
 extern crate objekt_clonable;
-
+#[macro_use]
 extern crate objekt;
 
 #[clonable]
-trait MyTrait: Clone {
+trait MyTrait: std::clone::Clone {
     fn recite(&self);
+}
+
+#[clonable]
+trait MyTrait2: std::clone::Clone {
+    fn recite2(&self);
 }
 
 impl MyTrait for String {
