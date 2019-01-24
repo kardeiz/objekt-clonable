@@ -9,6 +9,7 @@ use syn::*;
 pub fn clonable(_attrs: TokenStream, item: TokenStream) -> TokenStream {
     let mut item_trait = parse_macro_input!(item as ItemTrait);
 
+
     let item_trait_ident = &item_trait.ident;
 
     let cloneish_paths: &[Path] = &[
@@ -32,9 +33,11 @@ pub fn clonable(_attrs: TokenStream, item: TokenStream) -> TokenStream {
         panic!("`Clone` must be present in trait supertrait list");
     }
 
+    let (impl_generics, ty_generics, where_clause) = item_trait.generics.split_for_impl();
+
     (quote! {
         #item_trait
-        objekt_clonable::objekt::clone_trait_object!(#item_trait_ident);
+        objekt_clonable::objekt::clone_trait_object!(#impl_generics #item_trait_ident #ty_generics #where_clause);
     })
     .into()
 }

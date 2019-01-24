@@ -1,5 +1,11 @@
 use objekt_clonable::*;
 
+use std::io::Read;
+
+#[clonable]
+trait Difficult<R>: Clone where R: Read {
+    /* ... */
+}
 
 #[clonable]
 trait MyTrait: Clone {
