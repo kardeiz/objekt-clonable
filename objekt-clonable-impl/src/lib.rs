@@ -11,7 +11,7 @@ pub fn clonable(_attrs: TokenStream, item: TokenStream) -> TokenStream {
 
     let item_trait_ident = &item_trait.ident;
 
-    let cloneish_paths: Vec<Path> = vec![
+    let cloneish_paths: &[Path] = &[
         parse_quote!(Clone),
         parse_quote!(std::clone::Clone),
         parse_quote!(::std::clone::Clone),

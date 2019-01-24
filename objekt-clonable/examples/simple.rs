@@ -2,7 +2,7 @@ use objekt_clonable::*;
 
 
 #[clonable]
-trait MyTrait: std::clone::Clone {
+trait MyTrait: Clone {
     fn recite(&self);
 }
 
