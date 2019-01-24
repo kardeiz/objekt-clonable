@@ -13,4 +13,4 @@ objekt = "0.1.2"
 
 [dependencies.objekt-clonable-impl]
 path = "../objekt-clonable-impl"
-version = "0.2.0"
+version = "0.2.1"
