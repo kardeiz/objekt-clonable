@@ -1,4 +1,4 @@
-use objekt_clonable_impl::*;
+use objekt_clonable::*;
 
 
 #[clonable]
