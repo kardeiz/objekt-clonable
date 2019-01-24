@@ -7,7 +7,6 @@ Provides a proc_macro attribute wrapper for [objekt](https://docs.rs/objekt/*/ob
 ```rust
 use objekt_clonable::*;
 
-
 #[clonable]
 trait MyTrait: Clone {
     fn recite(&self);

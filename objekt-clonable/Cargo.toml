@@ -2,7 +2,7 @@
 authors = ["Jacob Brown <kardeiz@gmail.com>"]
 edition = "2018"
 name = "objekt-clonable"
-version = "0.2.0"
+version = "0.2.1"
 description = "Attribute wrapper for objekt"
 license = "MIT"
 repository = "https://github.com/kardeiz/objekt-clonable"
