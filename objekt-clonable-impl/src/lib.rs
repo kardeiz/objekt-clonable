@@ -9,14 +9,10 @@ use syn::*;
 pub fn clonable(_attrs: TokenStream, item: TokenStream) -> TokenStream {
     let mut item_trait = parse_macro_input!(item as ItemTrait);
 
-
     let item_trait_ident = &item_trait.ident;
 
-    let cloneish_paths: &[Path] = &[
-        parse_quote!(Clone),
-        parse_quote!(std::clone::Clone),
-        parse_quote!(::std::clone::Clone),
-    ];
+    let cloneish_paths: &[Path] =
+        &[parse_quote!(Clone), parse_quote!(std::clone::Clone), parse_quote!(::std::clone::Clone)];
 
     if let Some(path) = item_trait
         .supertraits

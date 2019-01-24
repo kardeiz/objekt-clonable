@@ -1,0 +1,2 @@
+[workspace]
+members = ["objekt-clonable", "objekt-clonable-impl"]

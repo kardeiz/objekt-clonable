@@ -3,7 +3,8 @@ use objekt_clonable::*;
 use std::io::Read;
 
 #[clonable]
-trait Difficult<R>: Clone where R: Read {
+trait Difficult<R>: Clone
+where R: Read {
     /* ... */
 }
 
