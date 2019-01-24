@@ -1,4 +1,5 @@
-use objekt_clonable::*;
+use objekt_clonable_impl::*;
+
 
 #[clonable]
 trait MyTrait: std::clone::Clone {
