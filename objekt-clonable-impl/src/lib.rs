@@ -11,18 +11,20 @@ pub fn clonable(_attrs: TokenStream, item: TokenStream) -> TokenStream {
 
     let item_trait_ident = &item_trait.ident;
 
-    let cloneish_paths: &[Path] =
-        &[parse_quote!(Clone), parse_quote!(std::clone::Clone), parse_quote!(::std::clone::Clone)];
+    let cloneish_paths = &[quote!(Clone), quote!(std::clone::Clone), quote!(::std::clone::Clone)];
 
     if let Some(path) = item_trait
         .supertraits
         .iter_mut()
         .filter_map(|x| match x {
-            TypeParamBound::Trait(ref mut y) => Some(y),
+            TypeParamBound::Trait(y) => Some(y),
             _ => None
         })
         .map(|x| &mut x.path)
-        .find(|x| cloneish_paths.iter().any(|y| &y == x))
+        .find(|x| {
+            let s = quote!(#x).to_string();
+            cloneish_paths.iter().any(|y| y.to_string() == s)
+        })
     {
         *path = parse_quote!(objekt_clonable::dyn_clone::DynClone);
     } else {
