@@ -3,7 +3,7 @@ authors = ["Jacob Brown <kardeiz@gmail.com>"]
 edition = "2018"
 name = "objekt-clonable-impl"
 version = "0.2.2"
-description = "Attribute wrapper for objekt"
+description = "Attribute wrapper for dyn-clone"
 license = "MIT"
 repository = "https://github.com/kardeiz/objekt-clonable"
 readme = "../README.md"
@@ -17,7 +17,7 @@ features = ["full", "extra-traits"]
 version = "0.15.18"
 
 [dev-dependencies]
-objekt = "0.1.1"
+dyn-clone = "1.0"
 
 [lib]
 proc-macro = true

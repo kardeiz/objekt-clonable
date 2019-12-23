@@ -39,7 +39,7 @@ fn main() {
     x.recite();
 
     // The type of x2 is a Box<MyTrait> cloned from x.
-    let x2 = objekt::clone_box(&*x);
+    let x2 = dyn_clone::clone_box(&*x);
 
     x2.recite();
 }

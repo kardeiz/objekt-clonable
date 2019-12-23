@@ -24,7 +24,7 @@ pub fn clonable(_attrs: TokenStream, item: TokenStream) -> TokenStream {
         .map(|x| &mut x.path)
         .find(|x| cloneish_paths.iter().any(|y| &y == x))
     {
-        *path = parse_quote!(objekt_clonable::objekt::Clone);
+        *path = parse_quote!(objekt_clonable::dyn_clone::DynClone);
     } else {
         panic!("`Clone` must be present in trait supertrait list");
     }
@@ -33,7 +33,7 @@ pub fn clonable(_attrs: TokenStream, item: TokenStream) -> TokenStream {
 
     (quote! {
         #item_trait
-        objekt_clonable::objekt::clone_trait_object!(#impl_generics #item_trait_ident #ty_generics #where_clause);
+        objekt_clonable::dyn_clone::clone_trait_object!(#impl_generics #item_trait_ident #ty_generics #where_clause);
     })
     .into()
 }
