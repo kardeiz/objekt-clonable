@@ -1,6 +1,6 @@
 # objekt-clonable
 
-Provides a proc_macro attribute wrapper for [objekt](https://docs.rs/objekt/*/objekt/).
+Provides a proc_macro attribute wrapper for [dyn-clone](https://docs.rs/dyn-clone/*/dyn_clone/).
 
 # Usage
 
@@ -13,6 +13,6 @@ trait MyTrait: Clone {
 }
 ```
 
-For additional information, see [dtolnay's](https://github.com/dtolnay) [objekt](https://docs.rs/objekt/*/objekt/).
+For additional information, see [dtolnay's](https://github.com/dtolnay) [dyn-clone](https://docs.rs/dyn-clone/*/dyn_clone/).
 
 License: MIT

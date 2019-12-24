@@ -3,13 +3,13 @@ authors = ["Jacob Brown <kardeiz@gmail.com>"]
 edition = "2018"
 name = "objekt-clonable"
 version = "0.2.2"
-description = "Attribute wrapper for objekt"
+description = "Attribute wrapper for dyn-clone"
 license = "MIT"
 repository = "https://github.com/kardeiz/objekt-clonable"
 readme = "../README.md"
 
 [dependencies]
-objekt = "0.1.2"
+dyn-clone = "1.0"
 
 [dependencies.objekt-clonable-impl]
 path = "../objekt-clonable-impl"
