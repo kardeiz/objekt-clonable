@@ -2,4 +2,4 @@
 pub use dyn_clone;
 
 // Re-export the attribute macro.
-pub use objekt_clonable_impl::*;
+pub use dyn_clonable_impl::*;

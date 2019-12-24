@@ -1,4 +1,4 @@
-use objekt_clonable::*;
+use dyn_clonable::*;
 
 use std::io::Read;
 

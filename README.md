@@ -1,11 +1,11 @@
-# objekt-clonable
+# dyn-clonable
 
 Provides a proc_macro attribute wrapper for [dyn-clone](https://docs.rs/dyn-clone/*/dyn_clone/).
 
 # Usage
 
 ```rust
-use objekt_clonable::*;
+use dyn_clonable::*;
 
 #[clonable]
 trait MyTrait: Clone {
