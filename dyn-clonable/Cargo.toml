@@ -2,7 +2,7 @@
 authors = ["Jacob Brown <kardeiz@gmail.com>"]
 edition = "2018"
 name = "dyn-clonable"
-version = "0.9.1"
+version = "0.9.2"
 description = "Attribute wrapper for dyn-clone"
 license = "MIT"
 repository = "https://github.com/kardeiz/objekt-clonable"
